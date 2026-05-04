@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Muttertag ❤️</title>
+  <link href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Lato&display=swap)" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      color: #333;
+      background-color: #fff8f7;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      height: 100vh;
+      background: url('bilder/strand.jpg') center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      background-attachment: fixed;
+      position: relative;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.35);
+    }
+
+    header > div {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      padding: 0 1rem;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .intro {
+      margin-top: 1rem;
+      line-height: 1.5;
+      font-size: 1.1rem;
+    }
+
+    .btn {
+      background-color: #ffadc2;
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 25px;
+      margin-top: 1.5rem;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #ff86a4;
+    }
+
+    section {
+      padding: 4rem 1rem;
+      text-align: center;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .card {
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 1rem 1.2rem 1.5rem;
+    }
+
+    .card h3 {
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 0.5rem;
+      font-size: 1.25rem;
+      color: #444;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #555;
+      margin-bottom: 0.8rem;
+    }
+
+    .link-btn {
+      display: inline-block;
+      margin-top: 0.5rem;
+      text-decoration: none;
+      color: #ff86a4;
+      font-weight: 600;
+    }
+
+    /* Overlay */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.4s ease, visibility 0.4s ease;
+      z-index: 999;
+    }
+
+    .overlay.active {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .overlay-message {
+      background-color: #fff;
+      border-radius: 12px;
+      padding: 2rem 2.5rem;
+      max-width: 440px;
+      text-align: center;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.2);
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 2rem; }
+      .overlay-message { width: 90%; padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>Alles Liebe zum Muttertag!</h1>
+    <p class="intro">
+      Liebe Mama,<br>
+      leider können wir dir dein eigentliches Muttertagsgeschenk in diesem Jahr nicht erfüllen.<br>
+      Manchmal kommt das Leben dazwischen und wir müssen unsere Pläne anpassen.<br><br>
+      Aber keine Sorge — sobald alle wieder fit sind, holen wir unsere gemeinsame Wanderung durch das Elbsandsteingebirge natürlich nach! 🌿
+    </p>
+    <button class="btn" onclick="document.getElementById('ideen').scrollIntoView({behavior:'smooth'})">Weiter</button>
+  </div>
+</header>
+
+<section id="ideen">
+  <p>Für den Muttertag selbst haben wir uns ein paar schöne Alternativen überlegt, um dir den Tag trotzdem zu versüßen.<br>Wähle einfach, worauf du Lust hast.</p>
+  <button class="btn" onclick="document.getElementById('aktivitaeten').scrollIntoView({behavior:'smooth'})">Los geht’s</button>
+</section>
+
+<section id="aktivitaeten">
+  <div class="cards">
+    <div class="card" onclick="showOverlay()">
+      <img src="bilder/boot.jpg" alt="Bootsfahrt Zwenkau">
+      <div class="card-content">
+        <h3>Fahrradtour zum Zwenkauer See</h3>
+        <p>Mit Eis, Sonne und einer Bootsfahrt auf der Santa Barbara.</p>
+        <a class="link-btn" href="[motorboot-mieten-zwenkau.de](https://motorboot-mieten-zwenkau.de/?utm_source=chatgpt.com#santabarara)" target="_blank">Mehr dazu</a>
+      </div>
+    </div>
+
+    <div class="card" onclick="showOverlay()">
+      <img src="bilder/schiff.jpg" alt="Schifffahrt Leipzig">
+      <div class="card-content">
+        <h3>Bootstour auf dem Markkleeberger See</h3>
+        <p>Gemütlich übers Wasser — Sonne, Wind & Aussicht genießen.</p>
+        <a class="link-btn" href="[personenschifffahrt-leipzig.de](https://personenschifffahrt-leipzig.de/fahrplan-2026/)" target="_blank">Mehr dazu</a>
+      </div>
+    </div>
+
+    <div class="card" onclick="showOverlay()">
+      <img src="bilder/fahrrad.jpg" alt="Fahrradtour">
+      <div class="card-content">
+        <h3>Fahrradtour in unserer Umgebung</h3>
+        <p>Spontan durch vertraute Orte, ganz nach deinem Wunsch.</p>
+      </div>
+    </div>
+
+    <div class="card" onclick="showOverlay()">
+      <img src="bilder/wein.jpg" alt="Weinwanderung">
+      <div class="card-content">
+        <h3>Weinwanderung beim Weingut Pawis</h3>
+        <p>Ein Hauch Urlaub in den Weinbergen, mit einem Glas Genuss.</p>
+        <a class="link-btn" href="[weingut-pawis.de](https://www.weingut-pawis.de/veranstaltungen.html)" target="_blank">Mehr dazu</a>
+      </div>
+    </div>
+
+    <div class="card" onclick="showOverlay()">
+      <img src="bilder/elbsandstein.jpg" alt="Elbsandsteingebirge">
+      <div class="card-content">
+        <h3>Wanderung im Elbsandsteingebirge</h3>
+        <p>Unsere eigentliche Wunsch‑Tour – nachgeholt, wenn alle fit sind.</p>
+        <a class="link-btn" href="[saechsische-schweiz.de](https://www.saechsische-schweiz.de/)" target="_blank">Mehr dazu</a>
+      </div>
+    </div>
+
+    <div class="card" onclick="showOverlay()">
+      <img src="bilder/kanu.jpg" alt="Kanufahren Leipzig">
+      <div class="card-content">
+        <h3>Kanufahren in Leipzig</h3>
+        <p>Ein bisschen Abenteuer auf den stillen Kanälen der Stadt.</p>
+        <a class="link-btn" href="[stadthafen-leipzig.com](https://www.stadthafen-leipzig.com/dreier-canadier-ausleihen)" target="_blank">Mehr dazu</a>
+      </div>
+    </div>
+
+    <div class="card" onclick="showOverlay()">
+      <img src="bilder/grillen.jpg" alt="Grillen im Garten">
+      <div class="card-content">
+        <h3>Gemeinsames Grillen im Garten</h3>
+        <p>Entspannter Abschluss – gutes Essen & Zeit miteinander.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="overlay" id="overlay">
+  <div class="overlay-message">
+    Wie schön! Wir freuen uns auf diese Aktivität mit dir – und anschließend auf unser gemütliches Grillen im Garten. 💕
+  </div>
+</div>
+
+<script>
+  function showOverlay() {
+    const overlay = document.getElementById('overlay');
+    overlay.classList.add('active');
+    setTimeout(() => overlay.classList.remove('active'), 2600);
+  }
+</script>
+
+</body>
+</html>
